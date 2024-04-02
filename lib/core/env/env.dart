@@ -21,6 +21,6 @@ abstract class Env {
   static String baseEndpoint = _Env.baseEndpoint;
   @EnviedField(obfuscate: true, varName: 'API_KEY')
   static String apiKey = _Env.apiKey;
-  @EnviedField(obfuscate: true, varName: 'SHOW_DEBUG_INFO')
+  @EnviedField(obfuscate: false, varName: 'SHOW_DEBUG_INFO')
   static bool showDebugInfo = _Env.showDebugInfo;
 }

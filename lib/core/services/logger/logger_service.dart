@@ -6,7 +6,7 @@ abstract class LoggerService {
   void debug({required String message});
   void error({required dynamic error, required StackTrace stackTrace});
   void info({required String message});
-  void verbose({required String message});
+  void trace({required String message});
   void warning({required String message});
 }
 
@@ -41,9 +41,9 @@ class LoggerServiceImpl implements LoggerService {
   }
 
   @override
-  void verbose({required String message}) {
+  void trace({required String message}) {
     if (_showDebug) {
-      logger.v(message);
+      logger.t(message);
     }
   }
 
