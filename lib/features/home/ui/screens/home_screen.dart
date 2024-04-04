@@ -1,3 +1,4 @@
+import 'package:alif_quran/features/home/ui/widgets/home_header_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,9 +12,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: const Column(
         children: [
-          Center(
-            child: Text('Banner'),
-          ),
+          HomeHeaderWidget(),
           SizedBox(height: 100),
           Center(
             child: Text('Feature Widget'),
