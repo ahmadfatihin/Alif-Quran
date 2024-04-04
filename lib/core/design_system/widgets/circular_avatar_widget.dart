@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../themes/pallet.dart';
+
 class CircularAvatarWidget extends StatelessWidget {
   final double size;
 
@@ -12,7 +14,7 @@ class CircularAvatarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: size / 2,
-      backgroundColor: Colors.blue,
+      backgroundColor: Pallet.white,
       child: Icon(
         Icons.person,
         size: size * 0.8,
