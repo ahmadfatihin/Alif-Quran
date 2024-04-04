@@ -2,6 +2,7 @@ import 'package:alif_quran/core/design_system/themes/textstyles.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/design_system/themes/dimension.dart';
+import '../../../../core/design_system/themes/pallet.dart';
 import '../widgets/home_header_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Pallet.whiteScaffold,
       body: SafeArea(
         child: Column(
           children: [
