@@ -1,5 +1,7 @@
+import 'package:alif_quran/core/design_system/themes/textstyles.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/design_system/themes/dimension.dart';
 import '../widgets/home_header_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -7,21 +9,24 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            HomeHeaderWidget(),
-            SizedBox(height: 100),
+            const HomeHeaderWidget(),
+            SizedBox(height: Dimension.width10),
             Center(
-              child: Text('Feature Widget'),
+              child: Text(
+                'Feature Widget',
+                style: TextStyles.textBaseXtraBold,
+              ),
             ),
-            SizedBox(height: 90),
-            Center(
+            SizedBox(height: Dimension.width500),
+            const Center(
               child: Text(' Sholat Time Widget'),
             ),
-            Spacer(),
-            Center(
+            const Spacer(),
+            const Center(
               child: Text('Bottom Navigation'),
             ),
           ],

@@ -4,9 +4,9 @@ class CircularAvatarWidget extends StatelessWidget {
   final double size;
 
   const CircularAvatarWidget({
-    Key? key,
+    super.key,
     required this.size,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CircularAvatarWidget extends StatelessWidget {
         Icons.person,
         size: size * 0.8,
         color: Colors.white,
-      ), // Placeholder background color
+      ),
     );
   }
 }
