@@ -11,8 +11,7 @@ class GetLocationData {
 
   GetLocationData({required this.geoService});
 
-  Future<Either<AppException, CityDetail>> call(
-      {required String address}) async {
+  Future<Either<AppException, CityDetail>> call() async {
     try {
       final currentPosition = await geoService.getCurrentPosition();
 
