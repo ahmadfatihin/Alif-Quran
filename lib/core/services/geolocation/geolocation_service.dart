@@ -23,6 +23,7 @@ class GeolocationServiceImpl implements GeolocationService {
     }
   }
 
+  @override
   Future<CityDetail> getCityDetails(Position position) async {
     try {
       final List<Placemark> placemarks = await placemarkFromCoordinates(
@@ -46,4 +47,5 @@ class GeolocationServiceImpl implements GeolocationService {
 
 abstract class GeolocationService {
   Future<Position> getCurrentPosition();
+  Future<CityDetail> getCityDetails(Position position);
 }
