@@ -2,10 +2,12 @@ import 'package:alif_quran/core/services/geolocation/city_detail_object.dart';
 import 'package:alif_quran/features/prayer/domain/usecases/get_location_data.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'prayer_state.dart';
 part 'prayer_cubit.freezed.dart';
 
+@singleton
 class PrayerCubit extends Cubit<PrayerState> {
   late GetLocationData getLocationData;
   PrayerCubit({
