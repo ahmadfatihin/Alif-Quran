@@ -5,13 +5,16 @@ part 'next_ayat_model.g.dart';
 
 @freezed
 class NextAyatModel with _$NextAyatModel {
+  @JsonSerializable(
+    fieldRename: FieldRename.snake,
+  )
   const factory NextAyatModel({
     required int id,
     @JsonKey(name: 'nomor') required int number,
     @JsonKey(name: 'nama') required String name,
-    @JsonKey(name: 'namaLatin') required String latinName,
-    @JsonKey(name: 'jumlahAyat') required int verseCount,
-    @JsonKey(name: 'tempatTurun') required String placeOfDescent,
+    @JsonKey(name: 'nama_latin') required String latinName,
+    @JsonKey(name: 'jumlah_ayat') required int verseCount,
+    @JsonKey(name: 'tempat_turun') required String placeOfDescent,
     @JsonKey(name: 'arti') required String meaning,
     @JsonKey(name: 'deskripsi') required String description,
     required String audio,
