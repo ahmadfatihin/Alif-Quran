@@ -18,8 +18,8 @@ class GeolocationServiceImpl implements GeolocationService {
       throw DefaultAppException(
         message: 'TimeoutException: ${e.message}',
       );
-    } catch (_) {
-      throw const DefaultAppException();
+    } catch (e) {
+      throw DefaultAppException(message: e.toString());
     }
   }
 
