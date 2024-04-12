@@ -65,3 +65,15 @@ dev_dependencies:
   envied_generator: ^0.3.0
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/
+
+# FlutterGen: run this command:
+# $ dart pub global activate flutter_gen
+# $ fluttergen -h
+# $ fluttergen -c example/pubspec.yaml
+flutter_gen:
+  output: lib/generated
+  line_length: 80
+  integrations:
+    flutter_svg: true

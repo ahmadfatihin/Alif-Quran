@@ -143,3 +143,4 @@ app.*.symbols
 .vscode/settings.json
 .fvm/fvm_config.json
 .fvm/flutter_sdk
+/assets/images/png
