@@ -197,4 +197,24 @@ class TextStyles {
   static TextStyle get text3XlXtraBold => text3XlDefault.copyWith(
         fontWeight: FontWeight.w800,
       );
+
+  /// Font Size 50 Default
+  static TextStyle get text4XlDefault => defaultStyle.copyWith(
+        fontSize: Dimension.style50,
+      );
+
+  /// Font Size 50 Weight 400
+  static TextStyle get text4XlRegular => text3XlDefault.copyWith(
+        fontWeight: FontWeight.w400,
+      );
+
+  /// Font Size 50 Weight 600
+  static TextStyle get text4XlSemiBold => text3XlDefault.copyWith(
+        fontWeight: FontWeight.w600,
+      );
+
+  /// Font Size 50 Weight 800
+  static TextStyle get text4XlXtraBold => text3XlDefault.copyWith(
+        fontWeight: FontWeight.w800,
+      );
 }
