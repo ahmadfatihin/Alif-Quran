@@ -3,8 +3,8 @@ import 'package:alif_quran/features/prayer/presentation/ui/widgets/prayer_time_w
 import 'package:alif_quran/features/quran/presentation/ui/screens/quran_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/design_system/themes/dimension.dart';
-import '../../../../core/design_system/themes/pallet.dart';
+import '../../../../../../../../core/design_system/themes/dimension.dart';
+import '../../../../../../../../core/design_system/themes/pallet.dart';
 import '../widgets/home_header_widget.dart';
 
 class HomeScreen extends StatelessWidget {
