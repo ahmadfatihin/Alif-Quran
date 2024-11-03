@@ -17,7 +17,6 @@ class ListQuranRepositoryImpl implements ListQuranRepository {
 
   @override
   Future<Either<AppException, List<ListAyat>>> getListQuran() async {
-    // Ubah di sini
     try {
       final result = await listQuranRemoteDatasource.getListQuran();
       return Right(result);

@@ -4,7 +4,7 @@ import '../../../../core/core.dart';
 import '../models/list_ayat.dart';
 
 abstract class ListQuranRemoteDatasources {
-  Future<List<ListAyat>> getListQuran(); // Ubah tipe kembalian di sini
+  Future<List<ListAyat>> getListQuran();
 }
 
 @LazySingleton(as: ListQuranRemoteDatasources)
