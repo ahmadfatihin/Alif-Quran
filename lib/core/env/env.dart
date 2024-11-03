@@ -19,8 +19,12 @@ const currentEnv = Environment.dev;
 abstract class Env {
   @EnviedField(obfuscate: true, varName: 'BASE_ENDPOINT')
   static String baseEndpoint = _Env.baseEndpoint;
+  @EnviedField(obfuscate: true, varName: 'BASE_ENDPOINT_2')
+  static String baseEndpoint2 = _Env.baseEndpoint2;
+
   @EnviedField(obfuscate: true, varName: 'API_KEY')
   static String apiKey = _Env.apiKey;
+
   @EnviedField(obfuscate: false, varName: 'SHOW_DEBUG_INFO')
   static bool showDebugInfo = _Env.showDebugInfo;
 }
