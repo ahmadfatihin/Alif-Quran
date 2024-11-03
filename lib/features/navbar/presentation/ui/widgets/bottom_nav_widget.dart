@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/core.dart';
+import '../../cubit/bottomnav_cubit.dart';
+import '../screens/home/presentation/ui/screens/home_screen.dart';
 import '../screens/book_mark/screens/book_mark_screen.dart';
-import '../screens/home/ui/screens/home_screen.dart';
 import '../screens/prayer_time/screens/prayer_time_screen.dart';
 import '../screens/profile/screens/profile_screen.dart';
-import '../../cubit/bottomnav_cubit.dart';
 
 class BottomNavWidget extends StatelessWidget {
-  const BottomNavWidget({super.key});
+  final Widget child;
+
+  const BottomNavWidget({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
