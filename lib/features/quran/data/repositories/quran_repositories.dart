@@ -6,20 +6,18 @@ import '../datasources/quran_remote_datasources.dart';
 import '../models/surah_model.dart';
 
 abstract class QuranRepository {
-  Future<Either<AppException, SurahModel>> getQuran({required String id});
+  Future<Either<AppException, SurahModel>> getQuran({required int id});
 }
 
 @LazySingleton(as: QuranRepository)
 class QuranRepositoryImpl implements QuranRepository {
-  final QuranRemoteDataSource quranRemoteDataSource;
+  final QuranRemoteDatasource quranRemoteDatasource;
 
-  QuranRepositoryImpl({required this.quranRemoteDataSource});
-
+  QuranRepositoryImpl({required this.quranRemoteDatasource});
   @override
-  Future<Either<AppException, SurahModel>> getQuran(
-      {required String id}) async {
+  Future<Either<AppException, SurahModel>> getQuran({required int id}) async {
     try {
-      final result = await quranRemoteDataSource.getQuran(id: id);
+      final result = await quranRemoteDatasource.getQuran(id: id);
       return Right(result);
     } on ServerException catch (e) {
       return Left(ServerException(code: e.code, message: e.message));
