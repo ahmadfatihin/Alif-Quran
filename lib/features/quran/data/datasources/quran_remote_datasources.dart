@@ -1,19 +1,20 @@
-import 'package:alif_quran/features/quran/data/models/surah_model.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/core.dart';
+import '../models/surah_model.dart';
 
-abstract class QuranRemoteDataSource {
-  Future<SurahModel> getQuran({required String id});
+abstract class QuranRemoteDatasource {
+  Future<SurahModel> getQuran({required int id});
 }
 
-@LazySingleton(as: QuranRemoteDataSource)
-class QuranRemoteDataSourceImpl implements QuranRemoteDataSource {
+@LazySingleton(as: QuranRemoteDatasource)
+class QuranRemoteDatasourceImpl implements QuranRemoteDatasource {
   final HttpClientService httpClientService;
 
-  QuranRemoteDataSourceImpl({@Named("base") required this.httpClientService});
+  QuranRemoteDatasourceImpl({@Named('base') required this.httpClientService});
+
   @override
-  Future<SurahModel> getQuran({required String id}) async {
+  Future<SurahModel> getQuran({required int id}) async {
     try {
       final response = await httpClientService.get(
         path: 'https://quran-api.santrikoding.com/api/surah/$id',

@@ -1,25 +1,32 @@
 import 'dart:async';
 
-import 'package:alif_quran/core/exceptions/app_exceptions.dart';
-import 'package:alif_quran/core/services/geolocation/city_detail_object.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
+import '../../core.dart';
+import 'city_detail.dart';
+import 'package:intl/intl.dart'; // Untuk format tanggal
 
 @LazySingleton(as: GeolocationService)
 class GeolocationServiceImpl implements GeolocationService {
   @override
   Future<Position> getCurrentPosition() async {
     try {
+      LocationSettings locationSettings = const LocationSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 10, // dalam meter, bisa disesuaikan
+      );
+
       return await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
+        locationSettings: locationSettings,
       );
     } on TimeoutException catch (e) {
       throw DefaultAppException(
         message: 'TimeoutException: ${e.message}',
       );
     } catch (e) {
-      throw DefaultAppException(message: e.toString());
+      throw DefaultAppException(
+          message: 'Error retrieving location: ${e.toString()}');
     }
   }
 
@@ -31,16 +38,41 @@ class GeolocationServiceImpl implements GeolocationService {
         position.longitude,
       );
 
-      Placemark place = placemarks[0];
+      if (placemarks.isEmpty) {
+        throw const DefaultAppException(message: 'No placemarks found');
+      }
+
+      final Placemark place = placemarks[0];
+      final String subAdministrativeArea =
+          place.subAdministrativeArea ?? "Unknown Area";
+      final String locality = place.locality ?? "Unknown Location";
+      final String country = place.country ?? "Unknown Country";
+
+      if (locality.isEmpty) {
+        throw const DefaultAppException(message: 'Locality is empty');
+      }
+
+      // Ambil tanggal saat ini
+      final now = DateTime.now();
+      final formattedDate = DateFormat('dd').format(now);
+      final formattedMonth = DateFormat('MMMM').format(now);
+      final formattedYear = DateFormat('yyyy').format(now);
+
       return CityDetail(
-          subAdministrativeArea: place.subAdministrativeArea ?? "-",
-          locality: place.locality ?? "-");
+        subAdministrativeArea: subAdministrativeArea,
+        locality: locality,
+        country: country,
+        date: formattedDate,
+        month: formattedMonth,
+        year: formattedYear,
+      );
     } on TimeoutException catch (e) {
       throw DefaultAppException(
         message: 'TimeoutException: ${e.message}',
       );
-    } catch (_) {
-      throw const DefaultAppException();
+    } catch (e) {
+      throw DefaultAppException(
+          message: 'Error retrieving city details: ${e.toString()}');
     }
   }
 }
